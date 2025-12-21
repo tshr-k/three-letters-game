@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useEffect, useState } from "react"
 import { FoundWordsBox } from "./found-words"
@@ -37,9 +37,9 @@ export function Game({ trigramCumulativeP, trigramToWordIdxs, words }: GameProps
     
     let [targetTrigram, setTargetTrigram] = useState("");
     let [foundWords, setFoundWords] = useState<string[]>([]);
-    let [errorMessage, setErrorMessage] = useState('');
+    let [errorMessage, setErrorMessage] = useState("");
     let [isError, setIsError] = useState(false);
-    let [isDark, setIsDark] = useState(true);
+    let [isDark, setIsDark] = useState(false);
     let [activeScreen, setActiveScreen] = useState(Screen.Main);
 
     useEffect(() => {
@@ -48,15 +48,21 @@ export function Game({ trigramCumulativeP, trigramToWordIdxs, words }: GameProps
 
     useEffect(() => {
         const root = window.document.documentElement;
-        if (isDark) root.classList.add("dark");
-        else root.classList.remove("dark");
+        if (isDark) {
+            root.classList.add("dark");
+            localStorage.setItem("theme", "dark");
+        }
+        else {
+            root.classList.remove("dark");
+            localStorage.setItem("theme", "light");
+        }
     }, [isDark])
 
 
     function checkSubmission(submittedInput: string, setInputValue: Function) {
         const submittedInputLower = submittedInput.toLowerCase();
         if (!submittedInputLower.includes(targetTrigram)) {
-            setErrorMessage(`'${targetTrigram.toUpperCase()}' missing`);
+            setErrorMessage(`"${targetTrigram.toUpperCase()}" missing`);
             setIsError(true);
         } else if (!words.includes(submittedInputLower)) {
             setErrorMessage("Invalid word");
@@ -66,7 +72,7 @@ export function Game({ trigramCumulativeP, trigramToWordIdxs, words }: GameProps
             setIsError(true);
         } else {
             setFoundWords(foundWords.concat(submittedInput));
-            setInputValue('');
+            setInputValue("");
             setIsError(false);
         }
     }

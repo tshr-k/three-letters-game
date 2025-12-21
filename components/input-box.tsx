@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { ChangeEvent, FormEvent, useEffect, useState } from "react"
 
@@ -9,14 +9,14 @@ interface InputBoxProps {
 }
 
 export function InputBox({ isError, checkSubmission, targetTrigram }: InputBoxProps) {
-    let [inputValue, setInputValue] = useState('');
+    let [inputValue, setInputValue] = useState("");
 
     useEffect(() => {
-        setInputValue('');
+        setInputValue("");
     }, [targetTrigram]);
 
     function handleChange(e: ChangeEvent<HTMLInputElement>) {
-        setInputValue(e.target.value.toUpperCase().trim().replace(/[^a-zA-Z]/g, ''));
+        setInputValue(e.target.value.toUpperCase().trim().replace(/[^a-zA-Z]/g, ""));
     }
 
     function handleSubmit(e: FormEvent<HTMLFormElement>) {

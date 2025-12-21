@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
 import { Url } from "next/dist/shared/lib/router/router";
 import Link from "next/link";
 import React from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMoon, faSun, faEye, faShuffle, faXmark } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faMoon, faSun, faEye, faShuffle, faXmark } from "@fortawesome/free-solid-svg-icons"
 import { faQuestionCircle } from "@fortawesome/free-regular-svg-icons";
 
 interface WithClassName {
@@ -16,7 +16,7 @@ interface WithHandleClick {
 }
 
 
-interface ButtonProps extends React.ComponentProps<'a'>, WithClassName, React.PropsWithChildren {}
+interface ButtonProps extends React.ComponentProps<"a">, WithClassName, React.PropsWithChildren {}
 
 function Button(props: ButtonProps) {
     return (
