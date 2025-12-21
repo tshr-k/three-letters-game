@@ -55,9 +55,6 @@ export function Game({ trigramCumulativeP, trigramToWordIdxs, words }: GameProps
 
     function checkSubmission(submittedInput: string, setInputValue: Function) {
         const submittedInputLower = submittedInput.toLowerCase();
-        setFoundWords(foundWords.concat(submittedInput));
-        setInputValue('');
-        setIsError(false);
         if (!submittedInputLower.includes(targetTrigram)) {
             setErrorMessage(`'${targetTrigram.toUpperCase()}' missing`);
             setIsError(true);
