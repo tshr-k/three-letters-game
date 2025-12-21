@@ -1,6 +1,7 @@
 {
   "name": "three_letters_game",
   "version": "0.1.0",
+  "type": "module",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,6 +10,12 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^7.1.0",
+    "@fortawesome/free-regular-svg-icons": "^7.1.0",
+    "@fortawesome/free-solid-svg-icons": "^7.1.0",
+    "@fortawesome/react-fontawesome": "^3.1.1",
+    "js-cookie": "^3.0.5",
+    "nanoid": "^5.1.6",
     "next": "16.0.10",
     "react": "19.2.1",
     "react-dom": "19.2.1"
