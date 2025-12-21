@@ -11,11 +11,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <html lang="en" className="dark">
         
         <head>
-            <meta name="google" content="notranslate"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5"></meta>
             <script src="https://kit.fontawesome.com/1b75ea42b3.js" crossOrigin="anonymous"></script>
         </head>
 
-        <body>
+        <body className="selection:bg-accent selection:text-black">
             {children}
         </body>
         

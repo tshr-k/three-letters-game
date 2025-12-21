@@ -16,7 +16,7 @@ export function FoundWordsBox({ foundWords }: FoundWordsBoxProps) {
     })
 
     return (
-        <ul className={`flex flex-wrap flex-col min-h-0 w-fit gap-x-10 self-center text-center ${foundWords.length ? "grow" : "grow-0"} transition-all duration-700 roboto-mono-heavy text-2xl text-gray-300 selection:bg-accent selection:text-black`}>
+        <ul className={`w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 grid-flow-row auto-cols-fr overflow-y-auto min-h-0 scroll-shadow self-center text-center ${foundWords.length ? "grow h-full" : "grow-0"} transition-all duration-700 roboto-mono-heavy text-2xl text-gray`}>
             {listItems}
         </ul>
     )
