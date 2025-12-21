@@ -66,7 +66,7 @@ interface LightDarkButtonProps extends WithClassName, WithHandleClick {
 export function LightDarkButton({ handleClick, className, isDark }: LightDarkButtonProps) {
     return (
         <Button title={isDark ? "enable light mode" : "enable dark mode"} onClick={handleClick} className={className}>
-            <FontAwesomeIcon icon={isDark ? faMoon : faSun} className="text-3xl text-foreground self-center select-none"/>
+            <FontAwesomeIcon icon={isDark ? faSun: faMoon} className="text-3xl text-foreground self-center select-none"/>
         </Button>
     )
 }
