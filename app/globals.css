@@ -36,6 +36,7 @@ html, body {
   font-family: Arial, Helvetica, sans-serif;
   height: 100%;
   width: 100%;
+  text-wrap-style: balance;
 }
 
 .roboto-mono-heavy {
@@ -58,7 +59,7 @@ html, body {
   mask-image: none;
 }
 
-.hover-scroll-shadow:hover, .scroll-shadow {
+.hover-scroll-shadow:hover, .hover-scroll-shadow:focus, .scroll-shadow {
     mask-image: linear-gradient(black, black 80%, transparent 95%, transparent);
 }
 
@@ -67,15 +68,19 @@ html, body {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--background-hover);
+  background: transparent;
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--gray);
+  background-color: transparent;
   border-radius: 5px;
 }
 
-::-webkit-scrollbar-thumb:hover {
+ul:hover::-webkit-scrollbar-thumb {
+  background: var(--gray);
+}
+
+ul::-webkit-scrollbar-thumb:hover {
   background-color: #9b9b9b;
 }

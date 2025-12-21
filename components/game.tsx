@@ -88,7 +88,7 @@ export function Game({ trigramCumulativeP, trigramToWordIdxs, words }: GameProps
         <div className="flex flex-col h-full w-full relative">
             <Modal heading={"Help"} meScreen={Screen.Help} activeScreen={activeScreen} setActiveScreen={setActiveScreen}>
                 Find words that contain the given letter combination!
-                <ul className="list">
+                <ul className="list text-left">
                     <li key="newpuzzle"><ShuffleButton className="inline pointer-events-none"/>Start a new puzzle</li>
                     <li key="lightdark"><LightDarkButton className="inline pointer-events-none" isDark={isDark}/>Switch to {isDark ? "light" : "dark"} mode</li>
                     <li key="revealanswers"><AnswersButton className="inline pointer-events-none"/>Reveal the answers</li>
@@ -96,8 +96,8 @@ export function Game({ trigramCumulativeP, trigramToWordIdxs, words }: GameProps
             </Modal>
 
             <Modal heading={"Answers"} meScreen={Screen.Answers} activeScreen={activeScreen} setActiveScreen={setActiveScreen}>
-                <div className="w-fit">tap to reveal</div>
-                <ul tabIndex={0} className="h-full rounded-[5px] text-transparent bg-gray pl-5 pb-10 hover:bg-transparent hover:text-foreground focus:bg-transparent focus:text-foreground pr-2.5 text-xl overflow-y-auto sm:overflow-y-hidden overflow-x-hidden hover:pr-0 hover:overflow-y-auto scroll-smooth hover-scroll-shadow w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+                <div className="mb-5">Tap to reveal</div>
+                <ul tabIndex={0} className="h-full rounded-[5px] text-transparent bg-gray pl-5 pb-10 hover:bg-transparent hover:text-foreground focus:bg-transparent focus:text-foreground text-xl overflow-y-auto overflow-x-hidden scroll-smooth hover-scroll-shadow w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
                     {answers.filter((answer) => answer.length <= 13).map(answer => <li key={nanoid()} className={foundWords.includes(answer.toUpperCase()) ? "text-gray" : "text-inherit"}>{answer}</li>)}
                 </ul>
             </Modal>
