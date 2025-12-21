@@ -20,7 +20,7 @@ export function ErrorBox({ message, isError, setIsError }: ErrorBoxProps) {
     }, [isError]);
 
     return (
-        <div className="h-13 w-full flex justify-center relative top-6">
+        <div className="h-13 w-full flex justify-center absolute top-6">
             <div className={`self-center bg-bad-input text-white ${isError ? "opacity-100" : "opacity-0"} roboto-mono-heavy pl-2 pr-2 rounded-full transition duration-500`}>
                 {message}
             </div>
