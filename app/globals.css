@@ -9,6 +9,7 @@
   --gray: #b4b4b4;
   
   --accent: var(--color-amber-300);
+  --accent-selected: var(--color-yellow-500);
   --bad-input: var(--color-pink-600);
 }
 
@@ -25,6 +26,7 @@
   --color-foreground: var(--foreground);
   --color-gray: var(--gray);
   --color-accent: var(--accent);
+  --color-accent-selected: var(--accent-selected);
   --color-background-hover: var(--background-hover);
   --color-background-pressed: var(--background-pressed);
   --color-bad-input: var(--bad-input);
