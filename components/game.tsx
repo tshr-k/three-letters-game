@@ -35,29 +35,33 @@ export function Game({ trigramCumulativeP, trigramToWordIdxs, words }: GameProps
         return "lol";
     }
     
-    let [targetTrigram, setTargetTrigram] = useState("");
-    let [foundWords, setFoundWords] = useState<string[]>([]);
-    let [errorMessage, setErrorMessage] = useState("");
-    let [isError, setIsError] = useState(false);
-    let [isDark, setIsDark] = useState(false);
-    let [activeScreen, setActiveScreen] = useState(Screen.Main);
+    const [targetTrigram, setTargetTrigram] = useState("");
+    const [foundWords, setFoundWords] = useState<string[]>([]);
+    const [errorMessage, setErrorMessage] = useState("");
+    const [isError, setIsError] = useState(false);
+    const [isDark, setIsDark] = useState(false);
+    const [activeScreen, setActiveScreen] = useState(Screen.Main);
+    const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
+        setIsMounted(true);
+        const root = window.document.documentElement;
+        setIsDark(root.classList.contains("dark"));
         setTargetTrigram(randomTrigram());
     }, []);
 
     useEffect(() => {
+        if (!isMounted) return;
+
         const root = window.document.documentElement;
         if (isDark) {
             root.classList.add("dark");
             localStorage.setItem("theme", "dark");
-        }
-        else {
+        } else {
             root.classList.remove("dark");
             localStorage.setItem("theme", "light");
         }
-    }, [isDark])
-
+    }, [isDark]);
 
     function checkSubmission(submittedInput: string, setInputValue: Function) {
         const submittedInputLower = submittedInput.toLowerCase();
