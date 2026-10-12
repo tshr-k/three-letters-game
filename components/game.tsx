@@ -26,7 +26,7 @@ export function Game({ trigramCumulativeP, trigramToWordIdxs, words }: GameProps
     function randomTrigram() {
         const x = Math.random();
         let s = 0;
-        for (let [cumulativeP, trigram] of trigramCumulativeP) {
+        for (const [cumulativeP, trigram] of trigramCumulativeP) {
             s += cumulativeP;
             if (s > x) {
                 return trigram;
@@ -63,7 +63,7 @@ export function Game({ trigramCumulativeP, trigramToWordIdxs, words }: GameProps
         }
     }, [isDark]);
 
-    function checkSubmission(submittedInput: string, setInputValue: Function) {
+    function checkSubmission(submittedInput: string, setInputValue: React.Dispatch<React.SetStateAction<string>>) {
         const submittedInputLower = submittedInput.toLowerCase();
         if (!submittedInputLower.includes(targetTrigram)) {
             setErrorMessage(`"${targetTrigram.toUpperCase()}" missing`);
@@ -116,7 +116,7 @@ export function Game({ trigramCumulativeP, trigramToWordIdxs, words }: GameProps
             
             <TargetTrigram targetTrigram={targetTrigram || "..."} className={foundWords.length ? "mt-12" : "mt-auto"}/>
             
-            <InputBox isError={isError} checkSubmission={checkSubmission} targetTrigram={targetTrigram}/>
+            <InputBox key={targetTrigram} isError={isError} checkSubmission={checkSubmission} targetTrigram={targetTrigram}/>
             
             <FoundWordsBox foundWords={foundWords}/>
             
