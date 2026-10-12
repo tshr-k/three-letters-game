@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Three Letters Game
 
-## Getting Started
+A small word game built with Next.js and React. You're given a three-letter combination (a trigram) and have to find as many English words as you can that contain it. Some features:
 
-First, run the development server:
+- Random trigram puzzles, weighted towards rarer combinations
+- Feedback for words that are invalid, already found, or missing the trigram
+- A revealable answer list with words you've already found greyed out
+- Light/dark mode that follows the system preference and is remembered between visits
+- Responsive layout for desktop and mobile
+- Fully static export, deployed to GitHub Pages via GitHub Actions
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Dependencies
+
+Requires Node.js (LTS) and npm. The app uses:
+
+- [Next.js](https://nextjs.org) 16 and React 19
+- [Tailwind CSS](https://tailwindcss.com) 4
+- [Font Awesome](https://fontawesome.com) for icons
+- [nanoid](https://github.com/ai/nanoid) for list keys
+
+Install them with:
+
+```sh
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Running
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Start the development server:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```sh
+npm run dev
+```
 
-## Learn More
+Then open [http://localhost:3000/three-letters-game](http://localhost:3000/three-letters-game) (the app is served under the `/three-letters-game` base path set in `next.config.ts`).
 
-To learn more about Next.js, take a look at the following resources:
+To build the static site into `out/`:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```sh
+npm run build
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Word data
 
-## Deploy on Vercel
+The word list lives in `data/`:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `words.csv` — the source word list, with frequency counts
+- `valid_words.csv` — the words accepted by the game
+- `trigram_to_word_idxs.json` — maps each trigram to the indices of the words containing it
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+`valid_words.csv` and `trigram_to_word_idxs.json` are generated from `words.csv` by `scripts/count_trigrams.ipynb`, which needs Python with `pandas` and Jupyter. Re-run it after changing the source word list.
