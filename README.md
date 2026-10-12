@@ -1,6 +1,11 @@
 # Three Letters Game
 
-A small word game built with Next.js and React. You're given a three-letter combination (a trigram) and have to find as many English words as you can that contain it. Some features:
+<p align="center">
+    <img alt="Gameplay" src="./demo/gameplay.png" width="200">
+    <img alt="Help screen" src="./demo/help.png" width="200">
+</p>
+
+A small word game built with Next.js and React. You're given a three-letter combination (a trigram) and need to find as many English words as you can that contain it. Some features:
 
 - Random trigram puzzles, weighted towards rarer combinations
 - Feedback for words that are invalid, already found, or missing the trigram
